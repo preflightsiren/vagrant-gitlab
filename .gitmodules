@@ -1,0 +1,6 @@
+[submodule "modules/gitlab"]
+	path = modules/gitlab
+	url = git@github.com:preflightsiren/puppet-gitlab.git
+[submodule "modules/mysql"]
+	path = modules/mysql
+	url = https://github.com/puppetlabs/puppetlabs-mysql.git
