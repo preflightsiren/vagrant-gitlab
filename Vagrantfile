@@ -9,12 +9,13 @@ Vagrant::Config.run do |config|
   config.vm.forward_port	8080, 8081, :name => "unicorn direct", :auto => true
   config.vm.network :hostonly, '192.168.1.10'
 
-  config.vm.customize ["modifyvm", :id, "--memory", 512] if config.vm.memory_size < 512 
+  config.vm.customize ["modifyvm", :id, "--memory", 512] 
 
   config.vm.provision :puppet do |puppet|
     puppet.module_path    = "modules"
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "gitlab.pp"
+    puppet.facter         = { "root_home" => "/root" }
   end
 
 end
